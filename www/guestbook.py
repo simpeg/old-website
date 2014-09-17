@@ -109,4 +109,4 @@ app = webapp2.WSGIApplication([
     ('/img/.*', Images),
     ('/contact', Contact),
     ('/.*', Error),
-], debug=True)
+], debug=os.environ.get("SERVER_SOFTWARE", "").startswith("Dev"))
