@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>SimPEG</title>
+  {% include _templateFolder+'head.html' %}
+  {% include _templateFolder+'mathjax.html' %}
+
+  <style type="text/css">
+    @import url(/s/css/stickyFooter.css);
+    @import url(/s/css/notebook.css);
+
+    .blog{
+        border:1px solid #ccc;
+        margin: 10px 0;
+        height:100%;
+
+        position: relative;
+        top:0px;
+        transition: all .25s ease-in-out;
+        -moz-transition: all .25s ease-in-out;
+        -webkit-transition: all .25s ease-in-out;
+    }
+    .blog:hover{
+        top:-10px;
+        border-color: #46B842;
+    }
+    .blog-link:hover, .blog-link:focus{
+        text-decoration: none;
+    }
+    .blog img{
+        max-width: 256px;
+    }
+    .blog-title{
+        padding: 0 10px;
+    }
+    .blog-title p{
+        color: #3F3F3F;
+        min-height: 4.5em;
+    }
+
+  </style>
+</head>
+<body>
+{% include _templateFolder+'navBar.html' %}
+<section>
+
+
+<container id="wrap" class="row">
+
+    <div class="col-md-8 col-md-offset-2">
+
+    <div class="row" style="margin: 50px 0;">
+        <div class="col-md-8 col-md-offset-2">
+            <p class="lead" style="text-align:center;">SimPEG Journal</p>
+        </div>
+    </div>
+    <hr>
+
+        {% for blog in blogs %}
+            {% if blog.index%3 == 0 %}
+            <div class="applications-container row">
+            {% endif %}
+                <div class="col-md-4">
+                    <a href="/journal/{{ blog.uid }}" class="blog-link">
+                        <div class="blog">
+                            <img src="{{ blog.tooltip }}" width="100%"><br>
+                            <hr>
+                            <div class="blog-title">
+                                <h4>{{ blog.title }}</h4>
+                                <p>{{ blog.description }}</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            {% if blog.index%3 == 2 or blog.index == numBlogs-1%}
+            </div>
+            {% endif %}
+        {% endfor %}
+
+    </div>
+
+    <div id="push"></div>
+</container> <!-- /. wrap -->
+
+
+
+{% include _templateFolder+'footer.html' %}
+</section>
+{% include _templateFolder+'scripts.html' %}
+</body>
+</html>

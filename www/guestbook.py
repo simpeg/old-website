@@ -4,13 +4,13 @@ import webapp2
 
 from google.appengine.ext import ndb
 from google.appengine.api import users
+from google.appengine.api import mail
+from google.appengine.api import urlfetch
 
 import os
 import jinja2
 import urllib, hashlib
-
-guestbook_key = ndb.Key('Guestbook', 'default_guestbook')
-
+import json
 
 
 JINJA_ENVIRONMENT = jinja2.Environment(
@@ -29,31 +29,84 @@ def setTemplate(self, template_values, templateFile):
 
 
 
-
-class Greeting(ndb.Model):
-    author = ndb.UserProperty()
-    content = ndb.TextProperty()
-    date = ndb.DateTimeProperty(auto_now_add=True)
-
-
 class MainPage(webapp2.RequestHandler):
     def get(self):
         setTemplate(self, {}, 'index.html')
 
 
-class Guestbook(webapp2.RequestHandler):
+baseURL = 'http://www.3ptscience.com'
+
+def getJournals():
+    url = baseURL + "/api/blog?qtype=tags&qmatch=simpeg&brief=True"
+    result = urlfetch.fetch(url)
+    if not result.status_code == 200:
+        return None
+    return json.loads(result.content)
+
+class Journals(webapp2.RequestHandler):
+    def get(self):
+        js = getJournals()
+        for i, j in enumerate(js):
+            j['index'] = i
+        setTemplate(self, {'blogs':js, 'numBlogs':len(js)}, 'journals.html')
+
+
+def getJournal(uid):
+    url = baseURL + "/api/blog?qtype=uid&qmatch="+uid
+    result = urlfetch.fetch(url)
+    if not result.status_code == 200:
+        return None
+    return json.loads(result.content)
+
+
+class Journal(webapp2.RequestHandler):
+    def get(self):
+        slug = self.request.path.split('/')[-1]
+
+        j = getJournal(slug)
+        if len(j) == 0:
+            setTemplate(self, {}, 'error.html')
+            return
+
+        j = j[0]
+        j['date'] = datetime.datetime.strptime(j['date'], "%Y-%m-%dT%H:%M:%SZ")
+        setTemplate(self, {'blog':j}, 'journal.html')
+
+
+class Contact(webapp2.RequestHandler):
+    def get(self, mailSent=False):
+        data = {'mailSent':mailSent}
+        setTemplate(self, data, 'contact.html')
+
     def post(self):
-        greeting = Greeting(parent=guestbook_key)
+        email   = self.request.get('email')
+        name    = self.request.get('name')
+        message = self.request.get('message')
 
-        if users.get_current_user():
-            greeting.author = users.get_current_user()
+        sender_address = "SimPEG Mail <rowanc1@gmail.com>"
+        email_to = "Rowan Cockett <rowanc1@gmail.com>"
+        email_subject = "SimPEGMail"
+        email_message = "New email from:\n\n%s<%s>\n\n\n%s\n" % (name,email,message)
 
-        greeting.content = self.request.get('content')
-        greeting.put()
-        self.redirect('/')
+        mail.send_mail(sender_address, email_to, email_subject, email_message)
+        self.get(mailSent=True)
+
+
+class Images(webapp2.RequestHandler):
+    def get(self):
+        self.redirect('http://www.3ptscience.com'+self.request.path)
+
+
+class Error(webapp2.RequestHandler):
+    def get(self):
+        setTemplate(self, {}, 'error.html')
 
 
 app = webapp2.WSGIApplication([
     ('/', MainPage),
-    ('/sign', Guestbook)
+    ('/journal', Journals),
+    ('/journal/.*', Journal),
+    ('/img/.*', Images),
+    ('/contact', Contact),
+    ('/.*', Error),
 ], debug=True)

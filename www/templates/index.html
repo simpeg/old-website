@@ -7,42 +7,82 @@
 
   <style type="text/css">
     @import url(/s/css/stickyFooter.css);
-    #gravatar-image{
-        border-radius: 7px;
-        border: 1px solid #ccc;
-        margin-right: 20px;
-    }
-    .blog-content p{
-      color: #444;
-      font-family: "Helvetica-Light","PT Serif", serif;
-      text-align: justify;
-      padding: 10px 0;
-    }
-    #blog-header{
-      padding-bottom: 15px;
-      margin-bottom: 30px;
-      border-bottom:1px solid #aaa;
 
-      -webkit-box-shadow: -10px 0 white, 10px 0 white, 0 6px 10px -5px #aaa;
-         -moz-box-shadow: -10px 0 white, 10px 0 white, 0 6px 10px -5px #aaa;
-              box-shadow: -10px 0 white, 10px 0 white, 0 6px 10px -5px #aaa;
+    .install {
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+
+    .install .inner-container {
+        padding-right: 26.04167%;
+        background: url(/s/img/python-logo.png) no-repeat;
+        background-position: 94.79167%;
+        background-size: 19.79167%;
+    }
+    .install p {
+        font-size: 22px;
+        line-height: 1.5em;
+        margin-bottom: 40px;
+    }
+    .install span.install-command {
+        display: inline-block;
+        background: #f1f1f1;
+        padding: 8px 20px;
+        -moz-border-radius: 3px;
+        -webkit-border-radius: 3px;
+        border-radius: 3px;
+        font-family: Courier,"Courier New",Monaco;
+        font-size: 2.5em;
+        margin-bottom: 40px;
     }
 
   </style>
-  <link rel="stylesheet" type="text/css" href="/css/notebook.css">
 </head>
 <body>
 {% include _templateFolder+'navBar.html' %}
 <section>
 
 
+<container id="wrap" class="row">
 
-<div id="wrap">
+    <div class="col-md-8 col-md-offset-2">
+
+    <center><img src="/s/img/logo-block.png" width="30%" style="margin-top:45px;"></center>
+    <h2 style="text-align:center;color:#333;">Simulation and Parameter Estimation in Geophysics</h2>
+
+    <div class="row" style="margin: 50px 0;">
+        <div class="col-md-8 col-md-offset-2">
+            <p class="lead" style="text-align:center;">An open source python package for simulation and gradient based parameter estimation in geophysical applications.</p>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="install">
+    <div class="inner-container">
+      <h3>Installation</h3>
+      <p>
+        The easiest way to install SimPEG is from <a href="https://pypi.python.org/pypi/simpeg">PyPI</a>,
+        using <a href="https://pypi.python.org/pypi/pip">pip</a>:
+      </p>
+      <span class="install-command"><i>&gt;</i> <span class="typing">pip install SimPEG</span></span>
+      <p class="instructions">
+        <i class="fa fa-book"></i>
+        Read more detailed installations instructions in the
+        <a href="http://simpeg.rtfd.org">documentation</a>.
+      </p>
+      <p class="source">
+        <i class="fa fa-github"></i>
+        Get the source code at <a href="https://github.com/simpeg/simpeg">Github</a>.
+      </p>
+    </div>
+  </div>
 
 
-    <div class="container marketing"></div>
+    </div>
+
     <div id="push"></div>
-</div> <!-- /. wrap -->
+</container> <!-- /. wrap -->
 
 
 
