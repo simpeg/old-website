@@ -34,6 +34,11 @@ class MainPage(webapp2.RequestHandler):
         setTemplate(self, {}, 'index.html')
 
 
+class Why(webapp2.RequestHandler):
+    def get(self):
+        setTemplate(self, {}, 'why.html')
+
+
 baseURL = 'http://www.3ptscience.com'
 
 def getJournals():
@@ -105,6 +110,7 @@ class Error(webapp2.RequestHandler):
 app = webapp2.WSGIApplication([
     ('/', MainPage),
     ('/journal', Journals),
+    ('/why', Why),
     ('/journal/.*', Journal),
     ('/img/.*', Images),
     ('/contact', Contact),

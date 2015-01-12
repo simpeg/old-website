@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>SimPEG</title>
+  {% include _templateFolder+'head.html' %}
+  {% include _templateFolder+'mathjax.html' %}
+
+  <style type="text/css">
+    @import url(/s/css/stickyFooter.css);
+    @import url(/s/css/notebook.css);
+
+    p{
+      text-align: justify;
+      text-indent: 50px;
+    }
+    p.lead{
+      text-indent: 0px;
+    }
+
+
+  </style>
+</head>
+<body>
+{% include _templateFolder+'navBar.html' %}
+<section>
+
+
+<container id="wrap" class="row">
+
+    <div class="col-md-6 col-md-offset-3" style="padding:30px 0">
+
+      <div class="row">
+      <p class='lead'>Why SimPEG</p>
+
+      <p>Our essential functions as researchers are the pursuit and dissemination of knowledge through research and education. As scientists we seek to find models that reproduce the observations that we make in the world. In geophysics, we use inverse theory to mathematically create models of the earth from measured data. It is a difficult problem with many moving pieces: physics, discretization, simulation, regularization, optimization, computer science, linear algebra, geology. Exploring each of these disciplines can take a career, if you are so inclined, but as geophysicists we care about the combination: how to pull these disciplines together to answer our questions. This is the first problem we hope to help solve: <b>to create a toolbox for the geophysicist that allows you to work at a high level and keep your geophysical question in focus</b>. However, a toolbox is not enough. The research questions that we are interested in surround the integration of information to make better decisions.</p>
+      <p>We believe that the feedback loops in the geosciences could use some serious work. For example, collect multiple data-sets from the same field area (geology, seismic, electromagnetics, hydrogeology), process the data separately, and then reconvene with your multidisciplinary team. You may be rather surprised (or not) that the everyone has a (completely!?) different model. Dissonant at best, but often conflicting in the details. Therein lies the second problem: how do we integrate these geoscience fields? Not by force or even by default, but at least to have the option of quantitative communication and built in feedback loops. <b>What we require is an implementation that is inherently and unequivocally modular, with all pieces available to manipulation.</b> Black-box software, where the implementations are hidden, obfuscated, or difficult to manipulate, do not promote experimentation and investigation. We are working on a framework that exposes the details of the implementation to the geophysicist in a manner that promotes productivity and question based interrogation. <b>This framework can be easily extended to encompass many geophysical problems and is built with the inverse problem as the fundamental goal.</b></p>
+      <p>The future we see is a mix of tools that span our disciplines, and a framework that allows us to integrate many different types of geophysical data so that we can communicate effectively and experiment efficiently. A toolbox combined with a framework that allows you to solve your own problems, and creates opportunities for us to work together to better image and understand the subsurface. What we are building is called SimPEG, simulation and parameter estimation in geophysics. We are building it in the open. We are testing it. Breaking it. Building it. Fixing it. Using it. If you believe, like we do, that geophysics can be more innovative and informative in the open and that these tools are necessary and invaluable in education as well as research, then you should get in touch. There is a lot of work to do!</p>
+
+      <!-- <div class="container"> -->
+        <div class="row">
+          <div class="col-md-4" style="text-align:left;font-style: italic;">Rowan Cockett</div>
+          <div class="col-md-4" style="text-align:center;font-style: italic;">Lindsey Heagy</div>
+          <div class="col-md-4" style="text-align:right;font-style: italic;">Seogi Kang</div>
+        </div>
+      <!-- </div> -->
+
+      </div>
+    </div>
+
+    <div id="push"></div>
+</container> <!-- /. wrap -->
+
+
+
+{% include _templateFolder+'footer.html' %}
+</section>
+{% include _templateFolder+'scripts.html' %}
+</body>
+</html>
