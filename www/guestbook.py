@@ -42,7 +42,7 @@ class Why(webapp2.RequestHandler):
 baseURL = 'http://www.3ptscience.com'
 
 def getJournals():
-    url = baseURL + "/api/blog?qtype=tags&qmatch=simpeg&brief=True"
+    url = baseURL + "/api/blogs/group?match=simpeg&brief=True"
     result = urlfetch.fetch(url)
     if not result.status_code == 200:
         return None
@@ -57,7 +57,7 @@ class Journals(webapp2.RequestHandler):
 
 
 def getJournal(uid):
-    url = baseURL + "/api/blog?qtype=uid&qmatch="+uid
+    url = baseURL + "/api/blog/"+uid
     result = urlfetch.fetch(url)
     if not result.status_code == 200:
         return None
@@ -73,7 +73,6 @@ class Journal(webapp2.RequestHandler):
             setTemplate(self, {}, 'error.html')
             return
 
-        j = j[0]
         j['date'] = datetime.datetime.strptime(j['date'], "%Y-%m-%dT%H:%M:%SZ")
         setTemplate(self, {'blog':j}, 'journal.html')
 
