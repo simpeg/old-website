@@ -6,7 +6,6 @@
   {% include _templateFolder+'mathjax.html' %}
 
   <style type="text/css">
-    @import url(/s/css/stickyFooter.css);
     @import url(/s/css/notebook.css);
 
     #gravatar-image{
@@ -21,6 +20,16 @@
       padding: 10px 0;
       font-size: 1.06em;
       line-height: 1.5em;
+      margin-bottom: 30px;
+    }
+    .blog-license{
+      font-size: 0.8em;
+      color: #272822;
+      text-align: right;
+      margin: 50px 0;
+    }
+    .blog-license a{
+      color: #6E6E6C;
     }
     #blog-header{
       padding-bottom: 15px;
@@ -50,8 +59,14 @@
 {% include _templateFolder+'navBar.html' %}
 <section>
 
+{% if blog.source and 'github.com' in blog.source %}
+<a href="{{ blog.source.replace('api.github.com/gists', 'gist.github.com') }}">
+  <img style="position: fixed; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/652c5b9acfaddf3a9c326fa6bde407b87f7be0f4/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6f72616e67655f6666373630302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png">
+</a>
+{% endif %}
 
-<container id="wrap" class="row">
+
+<container class="row">
 
     <div class="col-md-8 col-md-offset-2">
 
@@ -67,14 +82,13 @@
         {{ blog.renderedContent }}
       </div>
 
+      {% if blog.licenseHTML %}
+      <div class="blog-license">{{blog.licenseHTML}}</div>
+      {% endif %}
     </div>
 
-    <div id="push"></div>
-</container> <!-- /. wrap -->
+</container>
 
-
-
-{% include _templateFolder+'footer.html' %}
 </section>
 {% include _templateFolder+'scripts.html' %}
 </body>
