@@ -69,7 +69,7 @@ class Journal(webapp2.RequestHandler):
         slug = self.request.path.split('/')[-1]
 
         j = getJournal(slug)
-        if len(j) == 0:
+        if j is None or len(j) == 0:
             setTemplate(self, {}, 'error.html')
             return
 
@@ -109,6 +109,7 @@ class Error(webapp2.RequestHandler):
 app = webapp2.WSGIApplication([
     ('/', MainPage),
     ('/journal', Journals),
+    ('/journal/', Journals),
     ('/why', Why),
     ('/journal/.*', Journal),
     ('/img/.*', Images),

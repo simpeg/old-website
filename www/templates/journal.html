@@ -73,7 +73,7 @@
       <div id="blog-header">
       <img src="{{blog.owner.gravatar}}60" class="pull-left" id="gravatar-image">
       <h3>{{ blog.title }}</h3>
-      <span>{{ blog.date.strftime('%B %d, %Y') }}</span><small class="pull-right text-info">by {{blog.owner.name}}</small>
+      <span>{{ blog.date.strftime('%B %d, %Y') }}</span><small class="pull-right text-info">by {{blog.owner.name if not blog.owner.url else '<a href="%s" target="_blank">%s</a>'%(blog.owner.url,blog.owner.name)}}</small>
       </div>
 
 
