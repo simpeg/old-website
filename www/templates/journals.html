@@ -60,11 +60,11 @@
                 <div class="col-md-4">
                     <a href="/journal/{{ blog.uid }}" class="blog-link">
                         <div class="blog">
-                            <img src="{{ blog.tooltip }}" width="100%"><br>
+                            <img src="{{ blog.tooltip if blog.tooltip != 'None' else '/s/img/logo-block.png' }}" width="100%"><br>
                             <hr>
                             <div class="blog-title">
                                 <h4>{{ blog.title }}</h4>
-                                <p>{{ blog.description }}</p>
+                                <p>{{ blog.description if blog.description != 'None' else '' }}</p>
                             </div>
                         </div>
                     </a>
