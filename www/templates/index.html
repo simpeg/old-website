@@ -8,7 +8,7 @@
   <style type="text/css">
     @import url(/s/css/stickyFooter.css);
 
-    .install {
+    .callout {
         padding-top: 60px;
         padding-bottom: 60px;
     }
@@ -19,8 +19,8 @@
         background-position: 94.79167%;
         background-size: 19.79167%;
     }
-    .install p {
-        font-size: 22px;
+    .install p, .callout p {
+        font-size: 20px;
         line-height: 1.5em;
         margin-bottom: 40px;
     }
@@ -34,6 +34,14 @@
         font-family: Courier,"Courier New",Monaco;
         font-size: 2.5em;
         margin-bottom: 40px;
+    }
+
+    .table a{
+      color:#333;
+    }
+
+    .people img{
+      border-radius:  90px;
     }
 
   </style>
@@ -57,29 +65,110 @@
     </div>
 
     <hr>
+      <center>
+        <a href="https://crate.io/packages/SimPEG/" target="_blank"><img src="https://img.shields.io/pypi/v/SimPEG.svg" alt="Latest PyPI version"></a>
+        <a href="https://crate.io/packages/SimPEG/" target="_blank"><img src="https://img.shields.io/pypi/dm/SimPEG.svg" alt="Number of PyPI downloads"></a>
+        <a href="https://github.com/simpeg/simpeg/blob/master/LICENSE" target="_blank"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="BSD 3 clause license."></a>
+        <a href="https://travis-ci.org/simpeg/simpeg" target="_blank"><img src="https://img.shields.io/travis/simpeg/simpeg.svg" alt="Travis CI build status"></a>
+        <a href="https://coveralls.io/r/simpeg/simpeg?branch=master" target="_blank"><img src="https://img.shields.io/coveralls/simpeg/simpeg.svg" alt="Coverage status"></a>
+      </center>
+    <hr>
 
-    <div class="install">
-    <div class="inner-container">
-      <h3>Installation</h3>
+    <div class="install callout">
+      <div class="inner-container">
+        <h3>Installation</h3>
+        <p>
+          The easiest way to install SimPEG is from <a href="https://pypi.python.org/pypi/simpeg">PyPI</a>,
+          using <a href="https://pypi.python.org/pypi/pip">pip</a>:
+        </p>
+        <span class="install-command"><i>&gt;</i> <span class="typing">pip install SimPEG</span></span>
+        <p class="instructions">
+          <i class="fa fa-book"></i>
+          Read more detailed installations instructions in the
+          <a href="http://docs.simpeg.xyz">documentation</a>.
+        </p>
+        <p class="source">
+          <i class="fa fa-github"></i>
+          Get the source code at <a href="https://github.com/simpeg/simpeg">Github</a>.
+        </p>
+      </div>
+    </div>
+
+    <hr>
+
+    <div class="callout">
+        <h3>An extensible framework for geophysical inversions</h3>
+
+        <p>
+          Check out the <a href="http://docs.simpeg.xyz">documentation</a> and the paper (coming soon!) for an overview.
+        </p>
+
+        <center>
+        <img src="http://docs.simpeg.xyz/en/latest/_images/InversionWorkflow.png" height="600px">
+        </center>
+    </div>
+
+    <hr>
+
+    <div class="callout">
+        <h3>We are developing for all sorts of geophysical applications</h3>
+
+        <p>
+          Some of our projects are in active development, feel free to help out, or <a href="/contact">contact us</a> with a question.
+        </p>
+
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Package</th>
+              <th>State</th>
+              <th>Description</th>
+              <th style="min-width:210px;">Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for P in packages%}
+            <tr>
+              <td><a href="https://github.com/simpeg/{{P.link}}"><i class="fa fa-github"></i> {{ P.name }}</a></td>
+              <td><i class="fa fa-{{ P.status }}" style="color:{{ P.color }};padding-left:10px"></i></td>
+              <td>{{ P.description }}</td>
+              <td>
+                  {% if not P.status == 'wrench' %}
+                  <a href="https://travis-ci.org/simpeg/{{P.link}}">
+                    <img src="https://api.travis-ci.org/simpeg/{{P.link}}.svg?branch=master" alt="Travis CI build status">
+                  </a>
+                  <a href="https://coveralls.io/r/simpeg/{{P.link}}?branch=master">
+                    <img src="https://img.shields.io/coveralls/simpeg/{{P.link}}.svg" alt="Coverage status">
+                  </a>
+                  {% else %}
+                  {% endif %}
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+
+    </div>
+
+    <hr>
+
+    <div class="row people callout">
+      <h3>Our team</h3>
       <p>
-        The easiest way to install SimPEG is from <a href="https://pypi.python.org/pypi/simpeg">PyPI</a>,
-        using <a href="https://pypi.python.org/pypi/pip">pip</a>:
+         Questions? Please <a href="/contact">contact us</a>.
       </p>
-      <span class="install-command"><i>&gt;</i> <span class="typing">pip install SimPEG</span></span>
-      <p class="instructions">
-        <i class="fa fa-book"></i>
-        Read more detailed installations instructions in the
-        <a href="http://docs.simpeg.xyz">documentation</a>.
-      </p>
-      <p class="source">
-        <i class="fa fa-github"></i>
-        Get the source code at <a href="https://github.com/simpeg/simpeg">Github</a>.
-      </p>
+      <div class="col-md-2"><center><a href="http://row1.ca"><img src="/s/img/people/rowan.png" width="110px" height="110px"><br>Rowan</a></center></div>
+      <div class="col-md-2"><center><a href="http://seogi.me"><img src="/s/img/people/seogi.png" width="110px" height="110px"><br>Seogi</a></center></div>
+      <div class="col-md-2"><center><a href="http://gif.eos.ubc.ca/people/lheagy"><img src="/s/img/people/lindsey.png" width="110px" height="110px"><br>Lindsey</a></center></div>
+      <div class="col-md-2"><center><a href="http://www.ucalgary.ca/pidlisecky/"><img src="/s/img/people/adam.png" width="110px" height="110px"><br>Adam</a></center></div>
+      <div class="col-md-2"><center><a href="http://gif.eos.ubc.ca/"><img src="/s/img/people/doug.png" width="110px" height="110px"><br>Doug</a></center></div>
+      <div class="col-md-2"><center><a href="https://github.com/simpeg/simpeg/graphs/contributors"><img src="/s/img/people/you.png" width="110px" height="110px"><br>Contributors</a></center></div>
     </div>
-  </div>
 
+    <hr>
 
     </div>
+
 
     <div id="push"></div>
 </container> <!-- /. wrap -->

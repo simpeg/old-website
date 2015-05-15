@@ -22,6 +22,8 @@ def setTemplate(self, template_values, templateFile):
     _templateFolder = 'templates/'
     # add Defaults
     template_values['_templateFolder'] = _templateFolder
+    template_values['_year'] = str(datetime.datetime.now().year)
+
 
     path = os.path.normpath(_templateFolder+templateFile)
     template = JINJA_ENVIRONMENT.get_template(path)
@@ -31,7 +33,17 @@ def setTemplate(self, template_values, templateFile):
 
 class MainPage(webapp2.RequestHandler):
     def get(self):
-        setTemplate(self, {}, 'index.html')
+        packages = [
+                        dict(name="SimPEG", link="simpeg", status="check", color="green", description="A framework for simulation and gradient based parameter estimation in geophysics."),
+                        dict(name="simpegEM", link="simpegem", status="refresh", color="green", description="A electromagnetic forward modeling and inversion package for SimPEG."),
+                        dict(name="simpegMT", link="simpegmt", status="refresh", color="orange", description="Magnetotellurics forward and inverse codes for SimPEG"),
+                        dict(name="simpegFLOW", link="simpegflow", status="flask", color="green", description="Groundwater (vadose zone) flow equations written in the SimPEG framework."),
+                        dict(name="simpegDC", link="simpegdc", status="flask", color="orange", description="A DC resistivity forward modelling and inversion package for SimPEG."),
+                        dict(name="simpegPF", link="simpegpf", status="flask", color="orange", description="Potential fields codes for SimPEG. Gravity and Magnetics."),
+                        dict(name="simpegSEIS", link="simpegseis", status="wrench", color="grey", description="Time and frequency domain forward modeling and inversion of seismic wave."),
+                        dict(name="simpegGPR", link="simpeggpr", status="wrench", color="grey", description="Forward modelling and inversion of Ground-Penetrating Radar (GPR)."),
+                   ]
+        setTemplate(self, {"indexPage":True, "packages":packages}, 'index.html')
 
 
 class Why(webapp2.RequestHandler):

@@ -13,7 +13,7 @@ handlers:
   static_dir: s
 
 - url: .*
-  script: guestbook.app
+  script: simpeg.app
 
 
 libraries:
