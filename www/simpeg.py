@@ -58,7 +58,7 @@ def getJournals():
     result = urlfetch.fetch(url)
     if not result.status_code == 200:
         return None
-    return json.loads(result.content)
+    return json.loads(result.content)['data']
 
 class Journals(webapp2.RequestHandler):
     def get(self):
