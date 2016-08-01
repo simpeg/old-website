@@ -11,7 +11,7 @@ if [ -z "$GAE_PROJECT" ]; then
 fi
 
 echo Unpack credentials
-openssl aes-256-cbc -K $encrypted_5401ef4ab636_key -iv $encrypted_5401ef4ab636_iv
+openssl aes-256-cbc -K $encrypted_5401ef4ab636_key -iv $encrypted_5401ef4ab636_iv \
   -in credentials.tar.gz.enc -out credentials.tar.gz -d
 
 echo Starting Deploy
