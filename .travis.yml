@@ -21,9 +21,7 @@ before_install:
 - cd build/simpeg/website
 install:
 - pip install -r requirements.txt
-- make build
 script:
-- exit 0
+- make build
 after_success:
 - ./deploy.sh
-- exit 0
