@@ -1,0 +1,51 @@
+{
+    "rowanc1":{
+        "name": "Rowan Cockett",
+        "affiliation": "3point Science, University of British Columbia",
+        "location": "Calgary, AB",
+        "email": "rowanc1@gmail.com",
+        "url": "http://row1.ca",
+        "avatar": "https://avatars.githubusercontent.com/u/913249?v=3",
+        "ORCID": "0000-0002-7859-8394"
+    },
+
+    "lheagy":{
+        "name": "Lindsey J. Heagy",
+        "affiliation": "University of British Columbia",
+        "location": "Vancouver, BC",
+        "email": "lheagy@eos.ubc.ca",
+        "url": "http://lindseyjh.ca",
+        "avatar": "https://avatars.githubusercontent.com/u/6361812?v=3",
+        "ORCID": "0000-0002-1551-5926"
+    },
+
+    "sgkang":{
+        "name": "Seogi Kang",
+        "affiliation": "University of British Columbia",
+        "location": "Vancouver, BC",
+        "email": "sgkang09@gmail.com",
+        "url": "http://seogi.me",
+        "avatar": "https://avatars.githubusercontent.com/u/6054371?v=3",
+        "ORCID": null
+    },
+
+    "phil-fortin":{
+        "name": "Phil Fortin",
+        "affiliation": "",
+        "location": "Vancouver, BC",
+        "email": null,
+        "url": null,
+        "avatar": "https://cloud.githubusercontent.com/assets/913249/17279745/b80f709a-5739-11e6-9eb8-47c7fc1c6b1e.jpg",
+        "ORCID": null
+    },
+
+    "thast":{
+        "name": "Thibaut Astic",
+        "affiliation": "University of British Columbia",
+        "location": "Vancouver, BC",
+        "email": "thast@eos.ubc.ca",
+        "url": "https://www.linkedin.com/in/thibautastic?trk=hp-identity-name",
+        "avatar": "https://avatars1.githubusercontent.com/u/13682747?v=3&s=460",
+        "ORCID": "0000-0003-1237-6315"
+    }
+}

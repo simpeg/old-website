@@ -65,12 +65,12 @@
     </div>
 
     <hr>
+
       <center>
-        <a href="https://crate.io/packages/SimPEG/" target="_blank"><img src="https://img.shields.io/pypi/v/SimPEG.svg" alt="Latest PyPI version"></a>
-        <a href="https://crate.io/packages/SimPEG/" target="_blank"><img src="https://img.shields.io/pypi/dm/SimPEG.svg" alt="Number of PyPI downloads"></a>
+        <a href="https://pypi.python.org/pypi/SimPEG" target="_blank"><img src="https://img.shields.io/pypi/v/SimPEG.svg" alt="Latest PyPI version"></a>
         <a href="https://github.com/simpeg/simpeg/blob/master/LICENSE" target="_blank"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="BSD 3 clause license."></a>
-        <a href="https://travis-ci.org/simpeg/simpeg" target="_blank"><img src="https://img.shields.io/travis/simpeg/simpeg.svg" alt="Travis CI build status"></a>
-        <a href="https://coveralls.io/r/simpeg/simpeg?branch=master" target="_blank"><img src="https://img.shields.io/coveralls/simpeg/simpeg.svg" alt="Coverage status"></a>
+        <a href="https://travis-ci.org/simpeg/simpeg" target="_blank"><img src="https://api.travis-ci.org/simpeg/simpeg.svg?branch=master" alt="Travis CI build status"></a>
+        <a href="https://codecov.io/gh/simpeg/simpeg" target="_blank"><img src="https://codecov.io/gh/simpeg/simpeg/branch/master/graph/badge.svg" alt="Coverage status"></a>
       </center>
     <hr>
 
@@ -104,7 +104,7 @@
         </p>
 
         <center>
-        <img src="http://docs.simpeg.xyz/en/latest/_images/InversionWorkflow.png" height="600px">
+        <img src="/s/img/simpeg/workflow.png" height="600px">
         </center>
     </div>
 
@@ -123,7 +123,6 @@
               <th>Package</th>
               <th>State</th>
               <th>Description</th>
-              <th style="min-width:210px;">Status</th>
             </tr>
           </thead>
           <tbody>
@@ -132,17 +131,6 @@
               <td><a href="https://github.com/simpeg/{{P.link}}"><i class="fa fa-github"></i> {{ P.name }}</a></td>
               <td><i class="fa fa-{{ P.status }}" style="color:{{ P.color }};padding-left:10px"></i></td>
               <td>{{ P.description }}</td>
-              <td>
-                  {% if not P.status == 'wrench' %}
-                  <a href="https://travis-ci.org/simpeg/{{P.link}}">
-                    <img src="https://api.travis-ci.org/simpeg/{{P.link}}.svg?branch=master" alt="Travis CI build status">
-                  </a>
-                  <a href="https://coveralls.io/r/simpeg/{{P.link}}?branch=master">
-                    <img src="https://img.shields.io/coveralls/simpeg/{{P.link}}.svg" alt="Coverage status">
-                  </a>
-                  {% else %}
-                  {% endif %}
-              </td>
             </tr>
             {% endfor %}
           </tbody>

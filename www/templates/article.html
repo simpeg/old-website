@@ -8,12 +8,14 @@
   <style type="text/css">
     @import url(/s/css/notebook.css);
 
-    #gravatar-image{
+    #avatar{
         border-radius: 7px;
         border: 1px solid #ccc;
         margin-right: 20px;
+        width:60px;
+        height:60px;
     }
-    .blog-content p{
+    .article-content p{
       color: #444;
       font-family: "Helvetica-Light","PT Serif", serif;
       text-align: justify;
@@ -22,16 +24,16 @@
       line-height: 1.5em;
       margin-bottom: 30px;
     }
-    .blog-license{
+    .article-license{
       font-size: 0.8em;
       color: #272822;
       text-align: right;
       margin: 50px 0;
     }
-    .blog-license a{
+    .article-license a{
       color: #6E6E6C;
     }
-    #blog-header{
+    #article-header{
       padding-bottom: 15px;
       margin-bottom: 30px;
       border-bottom:1px solid #aaa;
@@ -59,8 +61,8 @@
 {% include _templateFolder+'navBar.html' %}
 <section>
 
-{% if blog.source and 'github.com' in blog.source %}
-<a href="{{ blog.source.replace('api.github.com/gists', 'gist.github.com') }}">
+{% if article.source and 'github.com' in article.source %}
+<a href="{{ article.source.replace('api.github.com/gists', 'gist.github.com') }}" target="_blank">
   <img style="position: fixed; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/652c5b9acfaddf3a9c326fa6bde407b87f7be0f4/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6f72616e67655f6666373630302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png">
 </a>
 {% endif %}
@@ -70,21 +72,19 @@
 
     <div class="col-md-8 col-md-offset-2">
 
-      <div id="blog-header">
-      <img src="{{blog.owner.gravatar}}60" class="pull-left" id="gravatar-image">
-      <h3>{{ blog.title }}</h3>
-      <span>{{ blog.date.strftime('%B %d, %Y') }}</span><small class="pull-right text-info">by {{blog.owner.name if not blog.owner.url else '<a href="%s" target="_blank">%s</a>'%(blog.owner.url,blog.owner.name)}}</small>
+      <div id="article-header">
+      <img src="{{ article.avatar }}" class="pull-left" id="avatar">
+      <h3>{{ article.html_title }}</h3>
+      <span>{{ article.date.strftime('%B %d, %Y') }}</span><small class="pull-right text-info">by {{  article.html_authors  }} </small>
       </div>
 
 
-
-      <div class="blog-content">
-        {{ blog.renderedContent }}
+      <div class="article-content">
+        {{ article.html_content }}
       </div>
 
-      {% if blog.licenseHTML %}
-      <div class="blog-license">{{blog.licenseHTML}}</div>
-      {% endif %}
+      <div class="article-license">{{ article.html_license }}</div>
+
     </div>
 
 </container>
