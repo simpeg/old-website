@@ -10,12 +10,12 @@ if [ -z "$GAE_PROJECT" ]; then
   exit 0;
 fi
 
-# Unpack credentials
+echo Unpack credentials
 openssl aes-256-cbc -K $encrypted_5401ef4ab636_key -iv $encrypted_5401ef4ab636_iv
   -in credentials.tar.gz.enc -out credentials.tar.gz -d
 
-# Do deploy
-gcloud -q components update gae-python
+echo Starting Deploy
+# gcloud -q components update gae-python
 gcloud auth activate-service-account --key-file client-secret.json
 gcloud config set project $GAE_PROJECT
 gcloud preview datastore create-indexes ./www/index.yaml --project $GAE_PROJECT
