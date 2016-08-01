@@ -4,7 +4,7 @@ ADMIN_PORT=8009
 .PHONY: build symlinks articles
 
 symlinks:
-	cd www/lib && python _symLinks.py
+	cd www/lib && python _symlinks.py
 
 articles:
 	python build_article_list.py
