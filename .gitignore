@@ -56,3 +56,6 @@ target/
 *.sublime-workspace
 .DS_Store
 www/articles.json
+client-secret.json
+api_key.py
+credentials.tar.gz

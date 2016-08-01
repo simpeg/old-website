@@ -1,0 +1,13 @@
+bleach
+flask
+GoogleAppEngineCloudStorageClient
+jinja2
+jsonschema
+markdown
+nose-cov
+numpy
+python-coveralls
+requests
+requests_toolbelt
+webapp2
+webob
