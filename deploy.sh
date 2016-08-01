@@ -11,9 +11,8 @@ if [ -z "$GAE_PROJECT" ]; then
 fi
 
 # Unpack credentials
-openssl aes-256-cbc -K $encrypted_050daccd65cb_key -iv $encrypted_050daccd65cb_iv \
-  -in credentials.tar.gz.enc -d | tar -xzf -
-cp credentials/${GAE_PROJECT}/* ./
+openssl aes-256-cbc -K $encrypted_5401ef4ab636_key -iv $encrypted_5401ef4ab636_iv
+  -in credentials.tar.gz.enc -out credentials.tar.gz -d
 
 # Do deploy
 gcloud -q components update gae-python
