@@ -11,3 +11,4 @@ requests
 requests_toolbelt
 webapp2
 webob
+pyparsing
