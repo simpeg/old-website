@@ -22,7 +22,7 @@ import requests
 from requests_toolbelt.adapters import appengine
 appengine.monkeypatch()
 
-from article import GistArticle, MDArticle, add_contributors
+from article import MDArticle, add_contributors
 
 
 with open("contributors.json", "r") as f:

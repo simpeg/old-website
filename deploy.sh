@@ -18,7 +18,7 @@ echo Starting Deploy
 # gcloud -q components update gae-python
 gcloud auth activate-service-account --key-file client-secret.json
 gcloud config set project $GAE_PROJECT
-gcloud preview datastore create-indexes ./www/index.yaml --project $GAE_PROJECT
+gcloud datastore create-indexes ./www/index.yaml --project $GAE_PROJECT
 if [ "$PROMOTE" == "Yes" ]; then
   gcloud app deploy ./www/app.yaml --project $GAE_PROJECT --version $APP_VERSION --promote;
 else
