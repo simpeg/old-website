@@ -1,0 +1,22 @@
+{
+    "article": "HJformulation.md",
+    "contributors": {
+        "authors": [
+            "lheagy"
+        ],
+        "editors": [
+            "rowanc1"
+        ],
+        "reviewers": []
+    },
+    "date_published": "28/02/2015",
+    "description": "Implementing the E-B and H-J forumlations of Maxwell's Equations in the Frequency Domain",
+    "license": "CC-BY-4.0",
+    "slug": "implementations-of-fdem",
+    "tag": [
+        "em",
+        "fdem",
+        "finite volume"
+    ],
+    "title": "Implementations of Frequency Domain Maxwell in simpegEM"
+}

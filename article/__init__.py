@@ -1,1 +1,1 @@
-from article import GistArticle, add_contributors
+from article import GistArticle, MDArticle, add_contributors

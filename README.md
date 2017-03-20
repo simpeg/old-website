@@ -1,4 +1,4 @@
-![simpeglogo](www/s/img/logo.png)
+![simpeglogo](www/img/logo.png)
 
 simpegWebsite
 =============

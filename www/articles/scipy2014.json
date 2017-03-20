@@ -1,0 +1,22 @@
+{
+    "article": "scipy2014.md",
+    "contributors": {
+        "authors": [
+            "rowanc1"
+        ],
+        "editors": [
+            "rowanc1"
+        ],
+        "reviewers": [
+            ""
+        ]
+    },
+    "date_published": "12/07/2014",
+    "description": "Seogi Kang and Rowan Cockett gave a presentation on Simulation and Parameter Estimation in Geophysics (SimPEG) at SciPy 2014.",
+    "license": "CC-BY-4.0",
+    "slug": "scipy2014",
+    "tag": [
+        "scipy"
+    ],
+    "title": "SimPEG at SciPy2014"
+}

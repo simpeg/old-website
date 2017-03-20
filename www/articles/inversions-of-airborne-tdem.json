@@ -1,0 +1,23 @@
+{
+    "article": "airborne_TDEM_casestudy.md",
+    "contributors": {
+        "authors": [
+            "sgkang"
+        ],
+        "editors": [
+            "rowanc1"
+        ],
+        "reviewers": [
+            "lheagy"
+        ]
+    },
+    "date_published": "15/05/2015",
+    "description": "Exploring the inversion model space using different SimPEG meshes for electromagnetics.",
+    "license": "CC-BY-4.0",
+    "slug": "inversions-of-airborne-tdem",
+    "tag": [
+        "em",
+        "tdem"
+    ],
+    "title": "SimPEG Case study: Inversions of airborne time domain electromagnetic data"
+}

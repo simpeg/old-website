@@ -4,7 +4,6 @@ import sys
 
 sys.path.insert(1, os.path.join(os.path.abspath('.'), 'lib'))
 
-import cgi
 import datetime
 import webapp2
 
@@ -23,16 +22,29 @@ import requests
 from requests_toolbelt.adapters import appengine
 appengine.monkeypatch()
 
-from article import GistArticle, add_contributors
+from article import GistArticle, MDArticle, add_contributors
 
 
 with open("contributors.json", "r") as f:
     add_contributors(json.loads(f.read()))
 
 
-with open("articles.json", "r") as f:
-    ARTICLES = json.loads(f.read())
-ARTICLES_IDS = set((a["gist_id"] for a in ARTICLES))
+SLUGS = [
+    "primary-secondary-approaches",
+    "inversions-of-airborne-tdem",
+    "a-first-peak-into-the-black-box",
+    "implementations-of-fdem",
+    "ipython-in-teaching",
+    "moving-between-dimensions",
+    "exploring-julia",
+    "nudging-geophysics",
+    "scipy2014"
+]
+
+ARTICLES = []
+for slug in SLUGS:
+    with open("articles/{}.json".format(slug), "r") as f:
+        ARTICLES += [json.loads(f.read())]
 
 
 JINJA_ENVIRONMENT = jinja2.Environment(
@@ -97,28 +109,22 @@ baseURL = 'https://www.3ptscience.com'
 class Journals(webapp2.RequestHandler):
     def get(self):
         js = ARTICLES
+        print(ARTICLES)
         for i, j in enumerate(js):
             j['index'] = i
         setTemplate(self, {'blogs': js, 'numBlogs': len(js)}, 'journals.html')
-
-
-def getJournal(uid):
-    url = baseURL + "/api/blog/" + uid
-    result = urlfetch.fetch(url)
-    if not result.status_code == 200:
-        return None
-    return json.loads(result.content)
 
 
 class Journal(webapp2.RequestHandler):
     def get(self):
         slug = self.request.path.split('/')[-1]
 
-        if slug not in ARTICLES_IDS:
+        if slug not in SLUGS:
             setTemplate(self, {}, 'error.html')
             return
 
-        ga = GistArticle(slug)
+        ga = MDArticle(slug)
+        # print(ga.to_json())
         setTemplate(self, {'article': ga}, 'article.html')
 
 

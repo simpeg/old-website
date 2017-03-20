@@ -116,3 +116,54 @@ class GistArticle(object):
             "thumbnail": self.data["files"][self.meta["thumbnail"]]["raw_url"],
             "date": self.meta['date_published'],
         }
+
+
+class MDArticle(object):
+
+    def __init__(self, slug):
+        with open("articles/{}.json".format(slug), "r") as f:
+            self.meta = json.loads(f.read())
+        with open("articles/{}.md".format(slug), "r") as f:
+            self.content = f.read()
+
+        self.contributors = self.meta["contributors"]
+
+    @property
+    def html_content(self):
+        return markdown.markdown(self.content, extensions=[
+            'markdown.extensions.tables',
+            'markdown.extensions.fenced_code'
+        ])
+
+    @property
+    def avatar(self):
+        return contributors_dict[self.contributors["authors"][0]]['avatar']
+
+    @property
+    def source(self):
+        return "https://gist.github.com/" + self.gist_id
+
+    @property
+    def date(self):
+        return read_date(self.meta['date_published'])
+
+    # HTML rendering targets
+
+    @property
+    def html_title(self):
+        return self.meta['title']
+
+    @property
+    def html_authors(self):
+        return contributors_dict[self.contributors["authors"][0]]['name']
+
+    @property
+    def html_content(self):
+        return markdown.markdown(self.content, extensions=[
+            'markdown.extensions.tables',
+            'markdown.extensions.fenced_code'
+        ])
+
+    @property
+    def html_license(self):
+        return KNOWN_LICENCES["CC-BY-4.0"]

@@ -9,8 +9,14 @@ handlers:
   static_files: favicon.ico
   upload: favicon\.ico
 
-- url: /s
-  static_dir: s
+- url: /js
+  static_dir: js
+
+- url: /img
+  static_dir: img
+
+- url: /css
+  static_dir: css
 
 - url: .*
   script: simpeg.app

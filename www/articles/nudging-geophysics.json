@@ -1,0 +1,23 @@
+{
+    "article": "nudging-geophysics.md",
+    "contributors": {
+        "authors": [
+            "sgkang",
+            "rowanc1"
+        ],
+        "editors": [
+            "rowanc1"
+        ],
+        "reviewers": [
+            ""
+        ]
+    },
+    "date_published": "14/07/2014",
+    "description": "Different disciplines including physics, math (discretization) and computer science (code) can be intuitively connected through SimPEG's toolbox and framework. I believe this has significant potential to improve a geophysical researchers' capability to realize their geophysical ideas.",
+    "license": "CC-BY-4.0",
+    "slug": "nudging-geophysics",
+    "tag": [
+        "notebook"
+    ],
+    "title": "Nudging Scientific Computing in Geophysical Inversions"
+}

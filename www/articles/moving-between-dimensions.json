@@ -1,0 +1,22 @@
+{
+    "article": "MovingDimensionsEM.md",
+    "contributors": {
+        "authors": [
+            "sgkang"
+        ],
+        "editors": [
+            "rowanc1"
+        ],
+        "reviewers": []
+    },
+    "date_published": "31/01/2015",
+    "description": "Exploring the inversion model space using different SimPEG meshes for electromagnetics.",
+    "license": "CC-BY-4.0",
+    "slug": "moving-between-dimensions",
+    "tag": [
+        "em",
+        "fdem",
+        "tdem"
+    ],
+    "title": "Moving between dimensions in electromagnetic inversions"
+}

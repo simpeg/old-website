@@ -1,0 +1,22 @@
+{
+    "article": "exploring_julia_with_simpeg.md",
+    "contributors": {
+        "authors": [
+            "rowanc1"
+        ],
+        "editors": [
+            "rowanc1"
+        ],
+        "reviewers": [
+            ""
+        ]
+    },
+    "date_published": "27/01/2015",
+    "description": "A first attempt at translating some of the SimPEG library into Julia.",
+    "license": "CC-BY-4.0",
+    "slug": "exploring-julia",
+    "tag": [
+        "julia"
+    ],
+    "title": "Exploring Julia with SimPEG"
+}

@@ -1,0 +1,23 @@
+{
+    "article": "primary_secondary.md",
+    "contributors": {
+        "authors": [
+            "lheagy"
+        ],
+        "editors": [
+            "rowanc1"
+        ],
+        "reviewers": []
+    },
+    "date_published": "29/09/2015",
+    "description": "1+1=2, but sometimes it is more useful to think of 2=a+b where a=...",
+    "license": "CC-BY-4.0",
+    "slug": "primary-secondary-approaches",
+    "tag": [
+        "em",
+        "fdem",
+        "finite volume",
+        "primary-secondary"
+    ],
+    "title": "Primary-Secondary Approaches for Frequency Domain Maxwell"
+}
